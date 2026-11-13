@@ -1,0 +1,10 @@
+COMO USAR ESTE PACOTE DE FONTES (FFmpeg 9.0.2 essentials, gyan.dev, ffmpeg.exe 3256173f…8edec)
+
+1. Conferir a integridade:  sha256sum -c SHA256SUMS   (84 fontes; o manifesto do mantenedor em _MANTENEDOR/ tem SHA256SUMS próprio)
+2. Assinaturas MSYS2: VERIFICACAO-MSYS2.json (35/35 válidas, chaveiro msys2/MSYS2-keyring @ 5d249077…; para refazer: gpg --homedir <pasta nova> --import _chaves-msys2/msys2.gpg; gpg --homedir <pasta nova> --verify <pacote>.src.tar.zst.sig <pacote>.src.tar.zst — a chave que assina deve ser de _chaves-msys2/msys2-trusted ou certificada por uma delas, e não estar em msys2-revoked)
+3. Toolchain declarado (MSYS2 UCRT64): gcc 16.2.0-3, binutils 2.47-3, mingw-w64 crt/headers/winpthreads 14.0.0.r375.g9c1abbbf5-1, cmake 4.4.3-2, meson 1.12.0-1, ninja 1.13.2-1, nasm 3.02-1, make 4.4.1-5, cargo-c 0.10.25-1, rust 1.98.1-1 — https://packages.msys2.org/packages/
+4. Bibliotecas MSYS2: instalar as versões do manifesto (ou recompilar com o PKGBUILD de cada .src.tar.zst: makepkg-mingw).
+5. Bibliotecas do git: cada .tar é o "git archive" do commit exato do manifesto; compilar com as instruções padrão de cada projeto (declaração do mantenedor), estáticas, prefixo comum.
+6. FFmpeg: a fonte FFmpeg/FFmpeg-946fcce07b6d.tar; a linha configure exata está em _FFMPEG-BINARIO/README.ffmpeg.txt e em _FFMPEG-BINARIO/BUILDCONF.txt (saída de "ffmpeg -buildconf" do binário).
+
+LIMITE: as opções de configuração de cada biblioteca do item 5 não foram publicadas pelo mantenedor — a recompilação é funcionalmente equivalente, não idêntica byte a byte. Ressalvas: LEIA-ME.txt / PACOTE.json.

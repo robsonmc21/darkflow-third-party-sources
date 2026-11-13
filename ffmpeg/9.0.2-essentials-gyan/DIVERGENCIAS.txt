@@ -1,0 +1,52 @@
+AUDITORIA DAS DIVERGÊNCIAS ENTRE O MANIFESTO DO MANTENEDOR E O ffmpeg.exe (13/11/2026)
+ffmpeg.exe 9.0.2 essentials (gyan.dev), SHA-256 3256173f3f8bffd7df12227c68adf68025edb1832273a9530688a7bb1ed8edec — não alterado.
+
+Método: leitura das cadeias de texto do executável (caminhos de compilação, marcas de versão, data de build e marcas
+"GCC: (RevN, Built by MSYS2 project)" de cada objeto ligado). Comparação com:
+- os pacotes binários oficiais do MSYS2 UCRT64 (.PKGINFO em pkginfo-msys2/, com a origem e o SHA-256 de cada pacote em ORIGEM-SHA256.txt);
+- o histórico do PKGBUILD no repositório msys2/MINGW-packages.
+Os pacotes binários servem só como prova de data e compilador. As fontes estão nas pastas do pacote, com assinatura MSYS2 conferida.
+
+Graus de certeza usados: CONFIRMADO (prova exata), ALTO (prova forte e sem prova contrária), PARCIAL (versão certa, revisão do pacote ambígua).
+
+1) OpenSSL 3.6.4 — CONFIRMADO: pacote MSYS2 mingw-w64-openssl 3.6.4-1 (fonte em MSYS2_openssl/ e OpenSSL/)
+   - O binário traz "OpenSSL 3.6.4 25 Aug 2026", "built on: Tue Aug 25 20:55:21 2026 UTC", 'OPENSSLDIR: "/ucrt64/etc/ssl"' e 445 caminhos openssl-3.6.4/.
+   - O builddate do pacote 3.6.4-1 é 1787691321 = 2026-08-25T20:55:21Z, idêntico ao segundo.
+   - A 3.6.3-1 foi compilada em 2026-06-10 e a 3.6.5-1 em 2026-09-29: as duas estão excluídas.
+   - A marca "OpenSSL 3.6.3 9 Jun 2026" aparece ao lado de "libssh compiled with %s headers, currently running with %s". É o texto
+     dos cabeçalhos com que o libssh foi compilado: o libssh 0.12.2-1 foi compilado em 2026-07-31, quando a 3.6.3 era a atual. Não há
+     uma segunda biblioteca OpenSSL ligada.
+   - Origem: dependência do libssh (pacote MSYS2 declarado no manifesto). O manifesto só não lista a dependência transitiva.
+
+2) pixman 0.46.4 — PARCIAL: pacote MSYS2 0.46.4-2 ou 0.46.4-3; a 0.46.4-1 está excluída
+   - O binário traz caminhos ../pixman-0.46.4/pixman/…, no padrão de build meson do PKGBUILD do MSYS2.
+   - Os objetos de libpixman-1.a são marcados por versão do compilador: -1 = GCC 15.1.0 Rev7, -2 = GCC 16.1.0 Rev2, -3 = GCC 16.1.0 Rev3.
+     O binário não contém nenhuma marca "Rev7 15.1.0" e contém marcas Rev2 e Rev3 16.1.0.
+   - Código-fonte: as três revisões têm a MESMA fonte original (mesmo SHA-256) e nenhum patch. A ambiguidade de revisão não muda a fonte.
+     As três estão no pacote.
+   - Origem: dependência do cairo.
+
+3) libsodium 1.0.22 — PARCIAL: pacote MSYS2 1.0.22-1, -2 ou -3
+   - O binário traz caminhos ../../../libsodium-1.0.22/src/libsodium/…, no padrão autotools fora da árvore do MSYS2.
+   - As marcas de compilador das três revisões (15.2.0 Rev13, 16.1.0 Rev2, 16.1.0 Rev3) aparecem todas no binário, porque outros
+     componentes também as usam. Não há como distinguir só pelas marcas.
+   - Código-fonte: mesma fonte original nas três revisões, sem patches. As três estão no pacote.
+   - Origem: dependência do zeromq (pacote MSYS2 declarado no manifesto).
+
+4) libunibreak — ALTO para a versão 5.1; origem do binário intermediário NÃO IDENTIFICADA
+   - O binário traz ../../libunibreak-5.1/src/linebreak.c e ../../libunibreak-5.1/src/unibreakdef.c. Não há nenhum caminho libunibreak-7.0.
+     Só uma libunibreak pode ser ligada (os símbolos coincidem).
+   - O manifesto declara o pacote MSYS2 7.0-1. A libunibreak.a desse pacote foi compilada com GCC 15.2.0 Rev13 e, pelo padrão do PKGBUILD,
+     gravaria ../../libunibreak-7.0/src/… . Conclusão: a 7.0-1 do manifesto não é a que está no binário.
+   - O MSYS2 empacotou a 5.1 de 12/2022 a 07/2024 (PKGBUILD 5.1-1 em MINGW-packages@00fabca81ab8, cópia nesta pasta). O pacote binário
+     5.1 não está mais no espelho oficial.
+   - A fonte guardada em libunibreak_5.1/libunibreak_5_1.tar.gz (tag oficial libunibreak_5_1) tem o SHA-256
+     d59878d82c84a60b592940a8e1a264f0a9714f0a9a8868b099846f780d9dc167. É IDÊNTICO ao sha256sums do PKGBUILD 5.1-1 do MSYS2: é a mesma
+     fonte que o MSYS2 compilava. O PKGBUILD 5.1-1 não tem patches; o build é configure --enable-static --enable-shared.
+   - Lacuna: não há como provar se a .a 5.1 veio de um pacote MSYS2 antigo ou de um build próprio do mantenedor. A fonte é a mesma nos
+     dois casos. A fonte 7.0-1 declarada também está no pacote (MSYS2_libunibreak/).
+   - Origem: dependência do libass.
+
+Efeito sobre a fonte correspondente: nenhuma das quatro divergências deixa código ligado sem fonte no pacote. A única incerteza que
+resta é de proveniência (revisão do pacote MSYS2 do pixman/libsodium; origem da .a do libunibreak 5.1), não de código-fonte.
+Confirmar com o mantenedor é opcional e não muda o conteúdo do pacote.

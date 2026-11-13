@@ -1,0 +1,23 @@
+{
+  "pacote": "darkflow-ffmpeg-9.0.2-essentials-fontes-correspondentes-r2",
+  "revisao": "r2",
+  "binario": {
+    "file": "resources/bin/ffmpeg/ffmpeg.exe",
+    "sha256": "3256173f3f8bffd7df12227c68adf68025edb1832273a9530688a7bb1ed8edec",
+    "zip": "ffmpeg-9.0.2-essentials_build.zip",
+    "zipSha256": "60f467265b1e312373dbcd92200c2618a74850f98d3d078e94296bb3fa2047ba"
+  },
+  "fontes": 84,
+  "manifestoMantenedor": "_MANTENEDOR/ffmpeg-9.0.2-essentials_build-manifest.txt",
+  "acesso": "download gratuito, sem login, licença comercial ou pagamento (GPLv3 §6(d))",
+  "ressalvas": [
+    "Opções de configuração de cada biblioteca compilada pelo mantenedor a partir do git (o mantenedor declara que não há patches funcionais e que as instruções padrão de cada repositório bastam; não há script de build publicado)",
+    "libunibreak: o manifesto declara 7.0-1, o binário traz caminhos de libunibreak-5.1 — confirmar com o mantenedor",
+    "openssl 3.6.4, pixman 0.46.4, libsodium 1.0.22 e libunibreak 5.1 estão no binário mas não no manifesto: fontes guardadas pelos caminhos de compilação gravados no ffmpeg.exe. Para pixman e libsodium, as três revisões do pacote MSYS2 têm a MESMA fonte original (SHA-256) e nenhum patch — diferem só no PKGBUILD"
+  ],
+  "arquivo": "darkflow-ffmpeg-9.0.2-essentials-fontes-correspondentes-r2.tar.xz",
+  "bytes": 866882368,
+  "sha256": "e96efcdc287dac6dc584439c206dffcafa89808b2b2d447ca188a7511d4cc433",
+  "membros": 314,
+  "raiz": "darkflow-ffmpeg-9.0.2-essentials-fontes-correspondentes-r2/"
+}

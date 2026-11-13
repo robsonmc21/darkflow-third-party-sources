@@ -1,0 +1,86 @@
+Dependencies and build toolchain list for ffmpeg-9.0.2-essentials_build-www.gyan.dev
+
+FEATURE DEPENDENCIES
+
+AMF                 v1.5.2-2-gc35f613                      c35f613aea      https://github.com/GPUOpen-LibrariesAndSDKs/AMF.git
+aom                 v3.15.0-25-g023743a7d7                 023743a7d7      https://aomedia.googlesource.com/aom
+avisynth+           v3.7.5-383-g5c82777b                   5c82777b37      https://github.com/AviSynth/AviSynthPlus.git
+cairo               1.18.5                                 dd6262c17e      https://gitlab.freedesktop.org/cairo/cairo.git
+ffnvcodec           n13.1.15.0-1-geddcea9                  eddcea9e27      https://github.com/FFmpeg/nv-codec-headers.git
+freetype            VER-2-14-3                             5c79d6cd1a      https://github.com/freetype/freetype.git
+fribidi             v1.0.16-19-gc928e4c                    c928e4c775      https://github.com/fribidi/fribidi.git
+game-music-emu      0.6.6                                  f68963b1de      https://github.com/libgme/game-music-emu.git
+harfbuzz            14.4.0-108-g64e2b532                   64e2b53235      https://github.com/harfbuzz/harfbuzz.git
+libass              0.17.5-8-gb2fe9d8                      b2fe9d8770      https://github.com/libass/libass.git
+libvo-amrwbenc      0.1.3                                  884dd247db      https://github.com/mstorsjo/vo-amrwbenc
+libvpl              v2.17.0-1-g674d015                     674d015bcb      https://github.com/intel/libvpl
+libwebp             v1.6.0-249-g1f34635                    1f346354b6      https://chromium.googlesource.com/webm/libwebp
+ogg                 v1.3.6-7-g06a5e02                      06a5e0262c      https://github.com/xiph/ogg.git
+openal-soft         1.25.2-48-g7532541                     7532541b53      https://github.com/kcat/openal-soft.git
+openmpt             libopenmpt-0.6.30-3-g6c0a06bc          6c0a06bc2a      https://github.com/OpenMPT/openmpt.git
+opus                v1.6.1-68-g503d81b1                    503d81b138      https://github.com/xiph/opus.git
+rubberband          v4.0.0                                 e4296ac80b      https://github.com/breakfastquay/rubberband
+SDL                 release-2.32.0-234-gb90ac9502          b90ac95029      https://github.com/libsdl-org/SDL.git
+speex               Speex-1.2.1-51-g0589522                0589522989      https://github.com/xiph/speex.git
+srt                 v1.5.7-7-gcae8f62                      cae8f624a5      https://github.com/Haivision/srt.git
+theora              v1.2.0                                 28fd5ec77f      https://github.com/xiph/theora.git
+vaapi               2.11.0.pre1-275-g6b07f71               6b07f71005      https://github.com/intel/libva
+vidstab             v1.1.2-214-ge2445c4                    e2445c4081      https://github.com/georgmartius/vid.stab.git
+vmaf                v3.2.0-13-gf85a8536                    f85a853692      https://github.com/Netflix/vmaf.git
+vorbis              v1.3.7-37-g1b75110b                    1b75110b5a      https://github.com/xiph/vorbis.git
+vpx                 v1.17.0-57-gd2413e2ca                  d2413e2ca1      https://chromium.googlesource.com/webm/libvpx
+x264                v0.165.3223                            0480cb05fa      https://code.videolan.org/videolan/x264.git
+x265                4.3-45-g116b875                        116b87573e      https://github.com/Multicorewareinc/x265.git
+zimg                release-3.0.6-253-g67e0603             67e0603271      https://github.com/sekrit-twc/zimg.git
+
+mingw-w64-ucrt-x86_64-gsm                       1.0.24-1
+mingw-w64-ucrt-x86_64-lame                      3.100-3
+mingw-w64-ucrt-x86_64-libssh                    0.12.2-1
+mingw-w64-ucrt-x86_64-opencore-amr              0.1.6-1
+mingw-w64-ucrt-x86_64-openjpeg2                 2.5.4-2
+mingw-w64-ucrt-x86_64-libunibreak               7.0-1
+mingw-w64-ucrt-x86_64-xvidcore                  1.3.7-5
+mingw-w64-ucrt-x86_64-zeromq                    4.3.5-5
+
+
+SUPPORTING DEPENDENCIES
+
+fontconfig          2.18.3                                 0f236723a3      https://gitlab.freedesktop.org/fontconfig/fontconfig.git
+libxml2             v2.15.0-133-g5e568be5                  5e568be510      https://github.com/GNOME/libxml2.git
+mingw-w64-ucrt-x86_64-brotli                    1.2.0-1
+mingw-w64-ucrt-x86_64-bzip2                     1.0.8-4
+mingw-w64-ucrt-x86_64-expat                     2.8.4-2
+mingw-w64-ucrt-x86_64-glib2                     2.90.0-1
+mingw-w64-ucrt-x86_64-gmp                       6.3.0-2
+mingw-w64-ucrt-x86_64-gnutls                    3.8.13-3
+mingw-w64-ucrt-x86_64-libarchive                3.8.9-6
+mingw-w64-ucrt-x86_64-libffi                    3.8.0-1
+mingw-w64-ucrt-x86_64-libgcrypt                 1.12.4-1
+mingw-w64-ucrt-x86_64-libiconv                  1.19-1
+mingw-w64-ucrt-x86_64-libidn2                   2.3.8-4
+mingw-w64-ucrt-x86_64-libtasn1                  4.21.0-1
+mingw-w64-ucrt-x86_64-libunistring              1.4.2-1
+mingw-w64-ucrt-x86_64-nettle                    4.0-1
+mingw-w64-ucrt-x86_64-xz                        5.8.4-1
+mingw-w64-ucrt-x86_64-zstd                      1.5.7-2
+zlib-ng             v1.2.8_jtkv4-2966-g9174ab6             9174ab6bf5      https://github.com/zlib-ng/zlib-ng.git
+
+
+BUILD TOOLCHAIN
+
+mingw-w64-ucrt-x86_64-binutils                  2.47-3
+mingw-w64-ucrt-x86_64-cargo-c                   0.10.25-1
+mingw-w64-ucrt-x86_64-cmake                     4.4.3-2
+mingw-w64-ucrt-x86_64-crt                       14.0.0.r375.g9c1abbbf5-1
+mingw-w64-ucrt-x86_64-gcc                       16.2.0-3
+mingw-w64-ucrt-x86_64-headers                   14.0.0.r375.g9c1abbbf5-1
+mingw-w64-ucrt-x86_64-libstdc++                 16.2.0-3
+mingw-w64-ucrt-x86_64-libwinpthread             14.0.0.r375.g9c1abbbf5-1
+mingw-w64-ucrt-x86_64-make                      4.4.1-5
+mingw-w64-ucrt-x86_64-meson                     1.12.0-1
+mingw-w64-ucrt-x86_64-nasm                      3.02-1
+mingw-w64-ucrt-x86_64-ninja                     1.13.2-1
+mingw-w64-ucrt-x86_64-rust                      1.98.1-1
+mingw-w64-ucrt-x86_64-tools                     14.0.0.r375.g9c1abbbf5-1
+
+mingw packages can be obtained from https://packages.msys2.org/packages/
